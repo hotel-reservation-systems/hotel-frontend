@@ -1,0 +1,34 @@
+language: php
+
+php:
+- 7.3
+- 7.4
+
+jobs:
+  include:
+  - php: 7.4
+    env: KEY=VALUE
+  allow_failures:
+  - php: 7.4
+    env: KEY=VALUE
+
+script: php hello.php
+
+dist: bionic
+
+addons:
+  apt:
+    packages:
+    - sshpass
+  addons:
+    ssh_known_hosts: mars.cs.qc.cuny.edu
+
+before_deploy:
+- eval "$(ssh-agent -s)"
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: bash deploy.sh
+  on:
+    branch: master
