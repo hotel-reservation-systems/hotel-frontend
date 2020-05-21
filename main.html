@@ -13,7 +13,7 @@
     $.ajax({
       url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
       type:'POST',
-      sucess:function(response){
+      success:function(response){
         if(response.data["loggedin"]==true){
           alert(response.data["username"]);
         }
