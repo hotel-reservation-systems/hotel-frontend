@@ -15,7 +15,7 @@
         var username = document.getElementById("user").value.trim();
         var password = document.getElementById("password").value.trim();
         $.ajax({
-          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login',
+          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login/',
           type:'POST',
           data:{username:username,password:password,role:"customer"},
           success:function(response){
@@ -37,7 +37,7 @@
       var username = document.getElementById("user").value.trim();
       var password = document.getElementById("password").value.trim();
       $.ajax({
-        url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login',
+        url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login/',
         type:'POST',
         data:{username:username,password:password,role:"customer"},
         success:function(response){
