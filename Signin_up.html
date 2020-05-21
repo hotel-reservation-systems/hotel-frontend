@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HOTEL</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>
+
+    $(document).ready(function(){
+      $("#signin").click(function(){
+        var username = document.getElementById("user").value.trim();
+        var password = document.getElementById("password").value.trim();
+        $.ajax({
+          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login',
+          type:'POST',
+          data:{username:username,password:password,role:"customer"},
+          success:function(response){
+            var obj=JSON.parse(response);
+            if(obj.code== 0){
+              window.location.href="main.html?"+obj.username;
+            }
+            else{
+              alert(obj.message);
+            }
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+  $(document).ready(function(){
+    $("#signup").click(function(){
+      var username = document.getElementById("user").value.trim();
+      var password = document.getElementById("password").value.trim();
+      $.ajax({
+        url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login',
+        type:'POST',
+        data:{username:username,password:password,role:"customer"},
+        success:function(response){
+          var obj=JSON.parse(response);
+            alert(obj.message);
+        }
+      });
+    });
+  });
+  </script>
+</head>
+<body style="background-color:silver">
+  <section>
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-5 col-lg-4">
+          <label class="sr-only" for="input2-signin-02">Name</label>
+          <input class="form-control my-3 bg-light" id="user" type="text" placeholder="Name">
+          <label class="sr-only" for="input3-signin-02">Password</label>
+          <input class="form-control my-3 bg-light" id="password" type="password" placeholder="Password">
+          <div class="d-flex">
+            <button class="btn btn-outline-primary btn-block py-2 mr-3" name="signin" id="signin">Sign In!</button>
+            <button class="btn btn-primary btn-block py-2 mt-0" id="signup">Sign up!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
