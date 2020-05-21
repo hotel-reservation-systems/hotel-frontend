@@ -33,8 +33,14 @@
 </style>
 <body>
     <div class="date"  style='text-align:center';>
-    <label>Please Enter a Date:<br></label><input type="date">
+    <label id="inputDate">Please Enter a Date:<br></label><input type="date">
     <br>
-    <button class="register" onclick="myFunction()">Enter</button>
+    <a href="/hotel/hotel-frontend-master/main.html"><button class="register" onclick="myFunction()">Enter</button></a>
     </div>
 </body>
+<script>
+function myFunction(){    
+    var date = document.getElementById('inputDate').toString();
+    localStorage.setItem("currentDate", date);
+}
+</script>
