@@ -9,41 +9,44 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color:silver" onload="load_data()">
+<body style="background-color:silver">
+<!-- onload="load_data()" -->
+
   <script>
-    function load_data(){
-    var url=location.href;
-    var num=url.indexOf("?");
-    var str=url.substr(num+1);
-    var signin=document.getElementById("signin");
-    var signup=document.getElementById("signup");
-    var welcome=document.getElementById("welcome");
-    var logout=document.getElementById("logout");
-    if(num!=-1){
-    document.getElementById("demo").innerHTML=str;
-      signin.style.display="none";
-      signup.style.display="none";
-      document.getElementById("welcome").innerHTML="welcome "+str;
-      logout.style.display="block";
-    }
-    else{
-      signin.style.display="block";
-      signup.style.display="block";
-      document.getElementById("welcome").innerHTML="";
-      logout.style.display="none";
-    }
-  }
-  </script>
-  <!-- <script>
-    $(document).ready(function(){
-        $.ajax({
-          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/logout/',
-          success:function(response){
-            window.history.back();
+  $(ducument).ready(function(){
+    $.ajax({
+      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
+      type:'POST',
+      sucess:function(response){
+        if(response.data["loggedin"]==true){
+          alert(response.data["username"]);
         }
-      });
+      }
     });
-  </script> -->
+  });
+  //   function load_data(){
+  //   var url=location.href;
+  //   var num=url.indexOf("?");
+  //   var str=url.substr(num+1);
+  //   var signin=document.getElementById("signin");
+  //   var signup=document.getElementById("signup");
+  //   var welcome=document.getElementById("welcome");
+  //   var logout=document.getElementById("logout");
+  //   if(num!=-1){
+  //   document.getElementById("demo").innerHTML=str;
+  //     signin.style.display="none";
+  //     signup.style.display="none";
+  //     document.getElementById("welcome").innerHTML="welcome "+str;
+  //     logout.style.display="block";
+  //   }
+  //   else{
+  //     signin.style.display="block";
+  //     signup.style.display="block";
+  //     document.getElementById("welcome").innerHTML="";
+  //     logout.style.display="block";
+  //   }
+  // }
+  </script>
 <div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
