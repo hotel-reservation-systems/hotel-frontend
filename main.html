@@ -14,20 +14,17 @@
       url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
       type:'POST',
       success:function(response){
-        // var signin=document.getElementById("signin");
-        // var signup=document.getElementById("signup");
-        // var welcome=document.getElementById("welcome");
+
         var logout=document.getElementById("logout");
         if(response.data["loggedin"]==true){
-          // alert(response.data["username"]);
-            document.getElementById("demo").innerHTML=response.data["username"];
+
             document.getElementById("signin").style.display="none";
             document.getElementById("signup").style.display="none";
             document.getElementById("welcome").innerHTML="welcome "+response.data["username"];
             logout.style.display="block";
         }else{
             document.getElementById("signin").style.display="block";
-          document.getElementById("signup").style.display="block";
+            document.getElementById("signup").style.display="block";
             document.getElementById("welcome").innerHTML="";
             logout.style.display="none";
 
@@ -38,21 +35,6 @@
   </script>
 </head>
 <body style="background-color:silver">
-
-
-<script>
-
-  //   function load_data(){
-  //   var url=location.href;
-  //   var num=url.indexOf("?");
-  //   var str=url.substr(num+1);
-  //   if(num!=-1){
-  //   }
-  //   else{
-  //   }
-  // }
-</script>
-<p id="demo"></p>
 <div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
