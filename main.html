@@ -20,10 +20,10 @@
         var logout=document.getElementById("logout");
         if(response.data["loggedin"]==true){
           // alert(response.data["username"]);
-            document.getElementById("demo").innerHTML=str;
+            document.getElementById("demo").innerHTML=response.data["username"];
             document.getElementById("signin").style.display="none";
             document.getElementById("signup").style.display="none";
-            document.getElementById("welcome").innerHTML="welcome "+str;
+            document.getElementById("welcome").innerHTML="welcome "+response.data["username"];
             logout.style.display="block";
         }else{
             document.getElementById("signin").style.display="block";
@@ -52,6 +52,7 @@
   //   }
   // }
 </script>
+<p id="demo"></p>
 <div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
