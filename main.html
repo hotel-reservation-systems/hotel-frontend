@@ -9,18 +9,63 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color:silver">
+<body style="background-color:silver" onload="load_data()">
+  <script>
+    function load_data(){
+    var url=location.href;
+    var num=url.indexOf("?");
+    var str=url.substr(num+1);
+    var signin=document.getElementById("signin");
+    var signup=document.getElementById("signup");
+    var welcome=document.getElementById("welcome");
+    var logout=document.getElementById("logout");
+if(num!=-1){
+    document.getElementById("demo").innerHTML=str;
+      signin.style.display="none";
+      signup.style.display="none";
+      document.getElementById("welcome").innerHTML="welcome ";
+      logout.style.display="block";
+    }
+    else{
+      signin.style.display="block";
+      signup.style.display="block";
+      document.getElementById("welcome").innerHTML="";
+      logout.style.display="none";
+    }
+  }
+  </script>
 
+  <!-- <script>
+
+    $(document).ready(function(){
+      $("#signin").click(function(){
+        var username = document.getElementById("user").value.trim();
+        var password = document.getElementById("password").value.trim();
+        $.ajax({
+          url:'index.php',
+          type:'POST',
+          data:{username:username,password:password},
+          success:function(response){
+            var obj=JSON.parse(resonse);
+            if(obj.code== 0){
+            }
+          }
+        });
+      });
+    });
+  </script> -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
     <img src="bird.jpg" alt="logo" style="width:40px;">
   </a>
-  <ul class="navbar-nav mr-auto" >
-    <li class="nav-item" >
-      <a class="nav-link"  href="https://www.google.com" style="color:silver">Sign in</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" id="signin1">
+      <a class="nav-link"  href="signin_up.html" style="color:silver"  id="signin">Sign in</a>
+      <p  class="nav-link" id="welcome"></p>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="https://www.google.com" style="color:silver">Register</a>
+      <a class="nav-link" href="signin_up.html" style="color:silver"  id="signup">Register</a>
+        <button class="btn btn-dark btn-outline-dark-grey" id="logout" onclick="document.location = 'main.html'">logout</button>
     </li>
       </ul>
       <form class="form-inline">
@@ -30,22 +75,7 @@
   </ul>
 </nav>
 </div>
-<section>
-  <div class="container text-center">
-    <div class="row justify-content-center">
-      <div class="col-md-5 col-lg-4">
-        <label class="sr-only" for="input2-signin-02">Name</label>
-        <input class="form-control my-3 bg-light" id="input2-signin-02" type="text" placeholder="Name">
-        <label class="sr-only" for="input3-signin-02">Password</label>
-        <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="Password">
-        <div class="d-flex">
-          <button class="btn btn-outline-primary btn-block py-2 mr-3">Sign In!</button>
-          <button class="btn btn-primary btn-block py-2 mt-0">Sign up!</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<p id="demo"><p>
 <section class="py-5">
   <div class="container">
       <div class="col-md-9">
