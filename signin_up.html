@@ -19,12 +19,11 @@
           type:'POST',
           data:{username:username,password:password,role:"customer"},
           success:function(response){
-            var obj=JSON.parse(response);
-            if(obj.code== 0){
+            if(response.code== 0){
               window.location.href="main.html?"+obj.username;
             }
             else{
-              alert(obj.message);
+              alert(response.message);
             }
           }
         });
@@ -41,8 +40,7 @@
         type:'POST',
         data:{username:username,password:password,role:"customer"},
         success:function(response){
-          var obj=JSON.parse(response);
-            alert(obj.message);
+            alert(response.message);
         }
       });
     });
