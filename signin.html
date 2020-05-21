@@ -20,7 +20,7 @@
           data:{username:username,password:password,role:"customer"},
           success:function(response){
             if(response.code== 0){
-              window.location.href="main.html?"+obj.username;
+              window.location.href="main.html?"+response.username;
             }
             else{
               alert(response.message);
