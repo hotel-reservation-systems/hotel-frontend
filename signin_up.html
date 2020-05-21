@@ -21,7 +21,7 @@
           success:function(response){
             var obj=JSON.parse(resonse);
             if(obj.code== 0){
-              window.location.href="main.html?"+obj.code;
+              window.location.href="main.html?"+obj.username;
             }
             else{
               alert(obj.message);
