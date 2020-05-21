@@ -35,15 +35,16 @@ if(num!=-1){
   }
   </script>
   <script>
-  $(document).ready(function(){
-    $("logout").click(function(){
-      $.ajax({
-        url:'GET https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/logout/',
-        window.location.href="main.html";
-        });
+    $(document).ready(function(){
+        $.ajax({
+          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/logout/',
+          success:function(response){
+            window.history.back();
+        }
+      });
     });
-  });
   </script>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
     <img src="bird.jpg" alt="logo" style="width:40px;">
@@ -55,7 +56,7 @@ if(num!=-1){
     </li>
     <li class="nav-item">
       <a class="nav-link" href="signin_up.html" style="color:silver"  id="signup">Register</a>
-        <button class="btn btn-dark btn-outline-dark-grey" id="logout">logout</button>
+        <a class="nav-link" href="logout.html">logout</a>
     </li>
       </ul>
       <form class="form-inline">
