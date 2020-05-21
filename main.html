@@ -23,7 +23,7 @@ if(num!=-1){
     document.getElementById("demo").innerHTML=str;
       signin.style.display="none";
       signup.style.display="none";
-      document.getElementById("welcome").innerHTML="welcome ";
+      document.getElementById("welcome").innerHTML="welcome "+str;
       logout.style.display="block";
     }
     else{
@@ -34,26 +34,16 @@ if(num!=-1){
     }
   }
   </script>
-
-  <!-- <script>
-
-    $(document).ready(function(){
-      $("#signin").click(function(){
-        var username = document.getElementById("user").value.trim();
-        var password = document.getElementById("password").value.trim();
-        $.ajax({
-          url:'index.php',
-          type:'POST',
-          data:{username:username,password:password},
-          success:function(response){
-            var obj=JSON.parse(resonse);
-            if(obj.code== 0){
-            }
-          }
+  <script>
+  $(document).ready(function(){
+    $("logout").click(function(){
+      $.ajax({
+        url:'GET https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/logout/',
+        window.location.href="main.html";
         });
-      });
     });
-  </script> -->
+  });
+  </script>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
     <img src="bird.jpg" alt="logo" style="width:40px;">
@@ -65,7 +55,7 @@ if(num!=-1){
     </li>
     <li class="nav-item">
       <a class="nav-link" href="signin_up.html" style="color:silver"  id="signup">Register</a>
-        <button class="btn btn-dark btn-outline-dark-grey" id="logout" onclick="document.location = 'main.html'">logout</button>
+        <button class="btn btn-dark btn-outline-dark-grey" id="logout">logout</button>
     </li>
       </ul>
       <form class="form-inline">
@@ -75,7 +65,6 @@ if(num!=-1){
   </ul>
 </nav>
 </div>
-<p id="demo"><p>
 <section class="py-5">
   <div class="container">
       <div class="col-md-9">
