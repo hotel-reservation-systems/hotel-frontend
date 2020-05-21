@@ -15,11 +15,11 @@
         var username = document.getElementById("user").value.trim();
         var password = document.getElementById("password").value.trim();
         $.ajax({
-          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/',
+          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login',
           type:'POST',
-          data:{username:username,password:password},
+          data:{username:username,password:password,role:"customer"},
           success:function(response){
-            var obj=JSON.parse(resonse);
+            var obj=JSON.parse(response);
             if(obj.code== 0){
               window.location.href="main.html?"+obj.username;
             }
@@ -30,6 +30,23 @@
         });
       });
     });
+  </script>
+  <script>
+  $(document).ready(function(){
+    $("#signup").click(function(){
+      var username = document.getElementById("user").value.trim();
+      var password = document.getElementById("password").value.trim();
+      $.ajax({
+        url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login',
+        type:'POST',
+        data:{username:username,password:password,role:"customer"},
+        success:function(response){
+          var obj=JSON.parse(response);
+            alert(obj.message);
+        }
+      });
+    });
+  });
   </script>
 </head>
 <body style="background-color:silver">
@@ -43,7 +60,7 @@
           <input class="form-control my-3 bg-light" id="password" type="password" placeholder="Password">
           <div class="d-flex">
             <button class="btn btn-outline-primary btn-block py-2 mr-3" name="signin" id="signin">Sign In!</button>
-            <button class="btn btn-primary btn-block py-2 mt-0">Sign up!</button>
+            <button class="btn btn-primary btn-block py-2 mt-0" id="signup">Sign up!</button>
           </div>
         </div>
       </div>
