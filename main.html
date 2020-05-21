@@ -14,20 +14,20 @@
       url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
       type:'POST',
       success:function(response){
-        var signin=document.getElementById("signin");
-        var signup=document.getElementById("signup");
-        var welcome=document.getElementById("welcome");
+        // var signin=document.getElementById("signin");
+        // var signup=document.getElementById("signup");
+        // var welcome=document.getElementById("welcome");
         var logout=document.getElementById("logout");
         if(response.data["loggedin"]==true){
           // alert(response.data["username"]);
             document.getElementById("demo").innerHTML=str;
-            signin.style.display="none";
-            signup.style.display="none";
+            document.getElementById("signin").style.display="none";
+            document.getElementById("signup").style.display="none";
             document.getElementById("welcome").innerHTML="welcome "+str;
             logout.style.display="block";
         }else{
-            signin.style.display="block";
-            signup.style.display="block";
+            document.getElementById("signin").style.display="block";
+          document.getElementById("signup").style.display="block";
             document.getElementById("welcome").innerHTML="";
             logout.style.display="none";
 
