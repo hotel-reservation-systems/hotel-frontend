@@ -197,7 +197,7 @@
 			<td id="99" title=""></td>
 			<td id="100" title=""></td>
 		</tr>
-        <tr>
+       		 <tr>
 			<td id="101" title=""></td>
 			<td id="102" title=""></td>
 			<td id="103" title=""></td>
@@ -216,17 +216,17 @@
 <script>
 	function addpin(name, a, b){
 		if(name=="Hiton Garden Inn Long Island City New York"){
-			var id = a + b;
+			var id = 10*a + b;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel1.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="New York Hilton Midtown"){
-			var id = a + b;
+			var id = 10*a + b;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel2.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="Hilton Hotel New York Times Square West"){
-			var id = a + b;
+			var id = 10*a + b;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 		}
@@ -237,25 +237,19 @@
 			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/list/',
 			type:'POST',
 			success:function(response){
-// 				for(var i=0; i<response.data.lenth;i++){
-// 					alert(response.data[i].grid_i+" "+response.data[i].grid_j);
-// 					addpin(response.data[i].name, response.data[i].grid_i, response.data[i].grid_j);
-// 			console
 			$.each(response,function(key,value ){
 				if(key=="data"){
 					console.log(value);
 					$.each(value,function(key1,value1){
 						var name,i,j;
 						$.each(value1,function(key2,value2){
-							if(key2=="name"){
-							 name=value2;
-// 							console.log(name);
-							}
+							if(key2=="name") name=value2;
 							if(key2=="grid_i") i=value2;
-							if(key2=="grid_j"){ j=value2;
-							console.log(name+" "+i+" "+j);
-							addpin(name,i,j);
-									  }
+							if(key2=="grid_j"){ 
+								j=value2;
+								console.log(name+" "+i+" "+j);
+								addpin(name,i,j);
+							 }
 						});
 						
 					});
