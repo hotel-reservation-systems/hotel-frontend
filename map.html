@@ -228,13 +228,14 @@
 // 					addpin(response.data[i].name, response.data[i].grid_i, response.data[i].grid_j);
 // 			console
 			$.each(response,function(key,value ){
-// 				alert(key+" "+value);
-				console.log(value);
 				if(key=="data"){
 					console.log(value);
-// 					$.each(value,function(key1,value1){
+					$.each(value,function(key1,value1){
+						$.each(value1,function(key2,value2){
+							console.log(value2);
+						});
 						
-// 					});
+					});
 				}
 			});
 // 			}
