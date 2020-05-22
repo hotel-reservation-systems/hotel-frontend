@@ -232,7 +232,8 @@
 					console.log(value);
 					$.each(value,function(key1,value1){
 						$.each(value1,function(key2,value2){
-							console.log(value2);
+							if(key2=="grid_i") console.log(value2);
+							if(key2=="grid_j") console.log(value2);
 						});
 						
 					});
