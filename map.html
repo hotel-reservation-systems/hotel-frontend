@@ -204,17 +204,17 @@
 <script>
 	function addpin(name, a, b){
 		if(name=="Hilton Garden Inn Long Island City New York"){
-			var id = a + b;
+			var id = (a + b)%100;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel1.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="New York Hilton Midtown"){
-			var id = a + b;
+			var id = (a + b)%100;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel2.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="Hilton Hotel New York Times Square West"){
-			var id = a + b;
+			var id = (a + b)%100;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 		}
