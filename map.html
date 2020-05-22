@@ -223,10 +223,13 @@
 			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/list/',
 			type:'POST',
 			success:function(response){
-				for(var i=0; i<response.data.lenth;i++){
-					alert(response.data[i].grid_i+" "+response.data[i].grid_j);
+// 				for(var i=0; i<response.data.lenth;i++){
+// 					alert(response.data[i].grid_i+" "+response.data[i].grid_j);
 // 					addpin(response.data[i].name, response.data[i].grid_i, response.data[i].grid_j);
-			}
+			$.each(ressonse.data,function(key,value){
+				alert(key+" "+value);
+			});
+// 			}
 		}
 	});
 	});
