@@ -212,7 +212,8 @@
 			type:'POST',
 			success:function(response){
 				for(var i=0; i<response.data.lenth;i++){
-					addpin(response.data[i].name, response.data[i].grid_i, response.data[i].grid_j);
+					alert(response.data[i].grid_i+" "+response.data[i].grid_j);
+				//	addpin(response.data[i].name, response.data[i].grid_i, response.data[i].grid_j);
 			}
 		}
 	});
