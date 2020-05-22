@@ -229,11 +229,12 @@
 // 			console
 			$.each(response,function(key,value ){
 // 				alert(key+" "+value);
+				console.log(value);
 				if(key=="data"){
-					$.each(value,function(key1,value1){
-						if(key1=="grid_i") alert(value1);
-						if(key1=="grid_j") alert(value1);
-					});
+					console.log(value);
+// 					$.each(value,function(key1,value1){
+						
+// 					});
 				}
 			});
 // 			}
