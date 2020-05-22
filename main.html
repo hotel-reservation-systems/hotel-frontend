@@ -33,8 +33,18 @@
     });
   });
   </script>
+
 </head>
-<body style="background-color:silver">
+<style>
+body {
+  background-image: url('image2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+</style>
+<body>
 <div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
   <a class="navbar-brand" href="main.html">
@@ -49,21 +59,17 @@
       <a class="nav-link" href="register.html" style="color:silver"  id="signup">Register</a>
         <a class="nav-link" id="logout" href="logout.html">logout</a>
     </li>
+    <li class="navbar-nav mr-auto">
+      <a  class="nav-link" href="map.html">Map</a>
+    </li>
       </ul>
       <form class="form-inline">
         <input class="form-control" type="text" placeholder="Search">
         <button class="btn btn-dark btn-outline-dark-grey" type="submit">Search</button>
       </form>
-  </ul>
+
 </nav>
 </div>
-<section class="py-5">
-  <div class="container">
-      <div class="col-md-9">
-        <img class="img-fluid" src="" alt="map"></div>
-    </div>
-  </div>
-</section>
 
 </body>
 </html>
