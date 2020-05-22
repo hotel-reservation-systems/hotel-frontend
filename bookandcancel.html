@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style type="text/css">
+        /*这里是一些渲染的样式表
+        #hotel表示对整个div进行设置
+        margin设置外边距，auto表示自动居中对齐
+        width表示宽度，height表示高度，设置背景色以及文本居中
+        border-radius表示对整个块四周倒圆角，这样图案好看。*/
+            #hotel {        
+                margin: 0 auto;
+                width: 300px;
+                height: 360px;
+                background-color: rgb(144, 15, 230);
+                text-align: center;
+                border-radius: 50px;
+            }
+            #hotel p {
+            /*把p标签的元素变成行块级元素*/
+                display: inline-block;
+            }
+            h1,h2 {
+                margin: 0 auto;
+                /*给h1，h2元素加下边线*/
+                border-bottom: 5px solid saddlebrown;
+            }
+            h1 {
+                height: 120px;
+                /*使h1中的内容垂直居中*/
+                line-height: 120px;
+            }
+            #hotel button {
+            /*给按钮布局，设置背景色*/
+                margin: 22px 10px;
+                border: none;
+                background-color: burlywood;
+                outline: none;
+            }
+            /*当鼠标放到按钮时，按钮变色高亮显示*/
+            #hotel button:hover {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+         <!-- 首先我们将主体部分放入到一个id=‘hotel’的模块中这个主体由三部分构成，
+         第一部分：旅馆名字hotel。第二部分：营业状态status以及房间数量。第三部分：
+         三个按钮实现不同功能，或者做不同的的事情（实际上第三个改变营业状态的按钮不该
+         放在这里，但这里只是为了展示功能的实现）因为状态和房间数量是会修改的，因此
+         放到id为sta和room的p标签里面方便修改。
+         这里h1和h2表示表示块级元素（块级元素不做修改会直接占满网页的一行，同理还有
+         行级元素，它会依次摆放直到放满一行），并在其中放入了我们想要显示在网页的文字
+         网页的效果渲染在上面style标签里面的样式表里。
+         button表示一个按钮，它是行级元素。它的属性onclick表示它在被点击时会触发的
+         事件，οnclick="get()"表示点击时触发js里面的get函数，然后get函数执行，
+         然后做出一系列的行为改变或者渲染网页，即交互式行为的实现-->
+        <div id="hotel">
+            <h1>Lover Hotel</h1>
+            <h2>status:<p id="sta">OPEN</p></h2>
+            <h2>NumberOfRoom:<p id="room">15</p></h2>
+            <button onclick="get()">Reservation</button>
+            <button onclick="quitRoom()">Cancel</button>
+            <button onclick="changeStatus()">changestatus</button>
+        </div>  
+        <!--js的代码都是写在<script></script>标签之间的-->
+        <script type="text/javascript">
+                /* js语言支持面向对象的编程，所以为了实现旅馆的功能，我定义了一个
+                对象，名字叫hotel，它的名字是hotel，状态初始为true，房间初始为15
+                它有三个行为，订房间getRoom，退房间quitRoom，改变状态change。
+                js语言中的对象定义办法和python的字典类型很像，都是以键值对的形式
+                放在大括号里面，注意每个键值对以逗号隔开。*/
+                var hotel = {
+                    name:'hotel',
+                    status:true,
+                    rooms:15,
+                    getRoom:function() {
+                         //这里this是一种特殊语法，表示这个对象本身，this.status表示
+                         //hotel的status，下面的this.rooms也是同理
+                         //订房需要判断是不是营业状态，以及还有没有房间，并且根据不
+                         //同情况作出不同的响应
+                        if (this.status == true && this.rooms > 0) {
+                            this.rooms -= 1;
+                        //alert()函数表示起一个窗口在网页上显示你想要临时显示的内容
+                            alert('Thank you, book successfully');
+                        }else if (this.status == false){
+                            alert('Sorry, we are closed');
+                        }else {
+                            alert('No more rooms available！')
+                        }                       
+                    },
+                    quitRoom:function() {
+                    //退房需要判断是不是营业状态，以及所有人都退房了的情况
+                        if (this.status == true && this.rooms < 15) {
+                            this.rooms += 1;
+                            alert('Thank you, book successfully');
+                        } else if (this.status == false){
+                            alert('Sorry,we are closed.') ;
+                        }else {
+                            alert('Cancel Successfully')
+                        }
+                    },
+                    change:function() {
+                    /* 这里！表示js语法的取反和python一样，hotel.status初始为true
+                    那么取反就是false*/
+                        this.status = !this.status;
+                    }
+                };
+                /*下面定义的三个函数就是，当网页是的button按钮被按下时触发的函数
+                get函数调用了hotel的getRoom属性，使得房间数量减少了，并且在网页是实时
+                的显示出来*/
+                function get() {
+                    hotel.getRoom();
+                    /*document.getElementId()函数可以取到符合id的网页的元素，这里取
+                    网页元素p标签的id是room，然后用innerHTML方法将其修改为房间的当前
+                    数量*/
+                    document.getElementById('room').innerHTML = hotel.rooms;
+                };
+                function quitRoom() {
+                    hotel.quitRoom();
+                    document.getElementById('room').innerHTML = hotel.rooms;
+                };
+                function changeStatus() {
+                //调用hotel的change（）函数，改变hotel的营业状态
+                    hotel.change();
+                    //对hotel状态判断，输出不同的结果
+                    if (hotel.status == true) {
+                        var s = 'Opening...'
+                    } else{
+                        var s = 'Closed！'
+                    }
+                    document.getElementById('sta').innerHTML = s;
+                }       
+        </script>
+    </body>
+</html>
