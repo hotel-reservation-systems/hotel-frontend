@@ -231,8 +231,8 @@
 				if(key=="data"){
 					console.log(value);
 					$.each(value,function(key1,value1){
+						var name,i,j;
 						$.each(value1,function(key2,value2){
-							var name,i,j;
 							if(key2=="name"){
 							 name=value2;
 							console.log(name);
@@ -240,7 +240,7 @@
 							if(key2=="grid_i") i=value2;
 							if(key2=="grid_j"){ j=value2;
 							console.log(name+" "+i+" "+j);
-// 							addpin(name,i,j);
+							addpin(name,i,j);
 									  }
 						});
 						
