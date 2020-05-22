@@ -197,18 +197,6 @@
 			<td id="99" title=""></td>
 			<td id="100" title=""></td>
 		</tr>
-       		 <tr>
-			<td id="101" title=""></td>
-			<td id="102" title=""></td>
-			<td id="103" title=""></td>
-			<td id="104" title=""></td>
-			<td id="105" title=""></td>
-			<td id="106" title=""></td>
-			<td id="107" title=""></td>
-			<td id="108" title=""></td>
-			<td id="109" title=""></td>
-			<td id="110" title=""></td>
-		</tr>
         
     </table>
 </body>
@@ -216,17 +204,17 @@
 <script>
 	function addpin(name, a, b){
 		if(name=="Hiton Garden Inn Long Island City New York"){
-			var id = a + b;
+			var id = (a + b)%100;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel1.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="New York Hilton Midtown"){
-			var id = a + b;
+			var id = (a + b)%100;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel2.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="Hilton Hotel New York Times Square West"){
-			var id = a + b;
+			var id = (a + b)%100;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 		}
