@@ -89,24 +89,24 @@ function tableCreate(){
 }
 tableCreate();
 
-	function loadpopup(name){
-	if(confirm("the hotel you choose is "+name)) document.location="hotel-page-draft.html";
+	function loadpopup(name,id){
+	if(confirm("the hotel you choose is "+name)) document.location="hotel-page.html?"+id;
 	}
-	function addpin(chain, a, b,name){
+	function addpin(chain, a, b,name,id){
 		if(chain=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup(\''+name+'\');" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(\''+name+'\',id);" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
 		}
 		if(chain=="2"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup(\''+name+'\');" src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(\''+name+'\',id);" src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
 		}
 		if(chain=="5"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup(\''+name+'\');" src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(\''+name+'\',id);" src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
 		}
 
 
@@ -120,15 +120,16 @@ tableCreate();
 				if(key=="data"){
 					console.log(value);
 					$.each(value,function(key1,value1){
-						var chain_id,i,j,name;
+						var chain_id,i,j,name,id;
 						$.each(value1,function(key2,value2){
+							if(key2=="id") id=value2;
 							if(key2=="chain_id") chain_id=value2;
 							if(key2=="name") name=value2;
 							if(key2=="grid_i") i=value2;
 							if(key2=="grid_j"){ 
 								j=value2;
 								console.log(name+" "+i+" "+j);
-								addpin(chain_id,i,j,name);
+								addpin(chain_id,i,j,name,id);
 							 }
 						});
 						
