@@ -12,7 +12,7 @@
 <body style="background-color:silver">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
     <a class="navbar-brand" href="main.html">
-      <img src="bird.jpg" alt="logo" style="width:40px;">
+      <img src="" alt="logo" style="width:40px;">
     </a>
     <ul class="navbar-nav mr-auto" >
       <li class="nav-item" >
@@ -110,7 +110,7 @@
 						$.each(value1,function(key2,value2){
                   if(key2=="hotel_id") hotel_id=value2;
                   if(key2=="rate") rate=value2;
-                  if(key2=="price") price=value2;
+	  if(key2=="price"){ price=value2;
                   console.log(hotel_id+" "+rate+" "+price);
                   makelist(hotel_id,rate,price);
 							 }
