@@ -58,7 +58,9 @@
 		<a href="register.html">register</a> 
         </div>
       </div>
-
+<div hidden="true" id="window">
+	<p id="name1">dsads</p>
+	</div>
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
@@ -95,7 +97,7 @@ tableCreate();
 		if(name=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img id="c" onclick="click()" src= "img/hotel.png" style="max-height:100%; max-width:100%">';
+			location.innerHTML='<img src= "img/hotel.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="2"){
 			var id = 100*a + b;
@@ -107,12 +109,12 @@ tableCreate();
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 		}
-
-
 	}
-	function click(){
-		alert("das");
-	}
+	$(ducument).ready(function(){
+		$("#window").hover(function(){
+			$(".window").toggle();
+		});
+	}):
 	$(document).ready(function(){
 		$.ajax({
 			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/list/',
