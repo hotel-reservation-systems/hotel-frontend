@@ -53,12 +53,11 @@
     <div class="dropdown">
 		<button class="dropbtn">Login & Register</button> 
 		<div class="dropdown-content"> 
-		<a href="signin">login</a> 
+		<a href="signin.html">login</a> 
 		<a href="logout.html">logout</a> 
 		<a href="register.html">register</a> 
         </div>
       </div>
-
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
@@ -90,14 +89,15 @@ function tableCreate(){
 }
 tableCreate();
 
-	function loadpopup(){
-		alert("das");
+	function loadpopup(id){
+		var popup=document.getElementById("id");
+		popup.innerHTML="dasdas";
 	}
 	function addpin(name, a, b){
 		if(name=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup();" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(id);" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
 		}
 		if(name=="2"){
 			var id = 100*a + b;
