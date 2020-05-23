@@ -79,8 +79,8 @@ function tableCreate(){
         for(var j = 0; j <= 100; j++){
                 var td = tr.insertCell();
                 td.appendChild(document.createTextNode(''));
-				var x = 10*i+j;
-                this.id = x;
+				var x = 100*i+j;
+                this.setAttribute('id', x);
         }
     }
     body.appendChild(tbl);
@@ -89,18 +89,18 @@ tableCreate();
 
 
 	function addpin(name, a, b){
-// 		if(name=="1"){
-// 			var id = 10*a + b;
-// 			var location = document.getElementById(id);
-// 			location.innerHTML='<img src= "img/hotel.png" style="max-height:100%; max-width:100%">';
-// 		}
+		if(name=="1"){
+			var id = 100*a + b;
+			var location = document.getElementById(id);
+			location.innerHTML='<img src= "img/hotel.png" style="max-height:100%; max-width:100%">';
+		}
 		if(name=="2"){
-			var id = 10*a + b;
+			var id = 100*a + b;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel2.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="5"){
-			var id = 10*a + b;
+			var id = 100*a + b;
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 		}
