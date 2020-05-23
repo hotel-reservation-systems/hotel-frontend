@@ -216,13 +216,13 @@
 		if(name=="Hilton Hotel New York Times Square West"){
 			var id = (a + b)%100;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="click(location)" src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
+			location.innerHTML='<img onclick="click(id)" src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 			
 		}
 
 	}
-	function click(var location){
-		var popup=document.getElementById(location);
+	function click(id){
+		var popup=document.getElementById(id);
 		popup.innerHTML='dasdsa';
 		popup.classList.toggle("show");
 	}
