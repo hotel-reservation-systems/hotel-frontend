@@ -43,7 +43,7 @@
 	Enter name of the new hotel: <input type="text" id="name" placeholder="Enter a name"><br><br>
 	Enter abscissa of the new hotel: <input type="text" id="x" placeholder="Enter an integer 1-100" maxlength="3"><br><br>
 	Enter ordinate of the new hotel: <input type="text" id="y" placeholder="Enter an integer 1-100" maxlength="3"><br><br>
-	<button onclick="myFunction()">ADD</button>
+	<button id="add">ADD</button>
 	</div>
 </body>
 
@@ -52,17 +52,17 @@
 	var name = document.getElementById("name");
 	var x = document.getElementById("x");
 	var y = document.getElementById("y");
-	function myFunction(){
-
-	$(document).ready(function(){
-    $.ajax({
-      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
-      type:'POST',
-      success:function(response){
-
-
-	  }})})
-	  
-	}
-</script>
+$(document).ready(function(){
+	$("#add").click(function(){
+		$.ajax({
+          url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
+          type:'POST',
+          data:{grid_i:x,grid_j:y,role:name},
+			success:function(response){
+			alert(response.message);
+			}
+		 });
+	});
+});
+	</script>
 </html>
