@@ -68,8 +68,8 @@ function tableCreate(){
 
     tbl.style.border = '1px solid black';
     tbl.style.cursor = 'pointer';
-//     tbl.style.height = '625px';
-//     tbl.style.width = '1050px';
+    tbl.style.maxHeight = '90%';
+    tbl.style.maxWidth = '100%';
     tbl.style.background= 'url("img/map.jpg")';
     tbl.style.backgroundRepeat= 'no-repeat';
     tbl.style.backgroundSize= 'cover';
@@ -79,8 +79,8 @@ function tableCreate(){
         var tr = tbl.insertRow();
         for(var j = 0; j <= 100; j++){
                 var td = tr.insertCell();
-		td.style.width = '15px';
-		td.style.height = '8px';
+// 		td.style.width = '15px';
+// 		td.style.height = '8px';
                 td.appendChild(document.createTextNode(''));
 		var x = 100*i+j;
                 td.setAttribute('id', x);
@@ -95,7 +95,7 @@ tableCreate();
 		if(name=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img id="c" onclick="click()" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img src= "img/hotel.png" style="max-height:60px; max-width:40px">';
 		}
 		if(name=="2"){
 			var id = 100*a + b;
