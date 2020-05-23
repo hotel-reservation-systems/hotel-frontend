@@ -92,24 +92,24 @@ function tableCreate(){
 }
 tableCreate();
 
-	function loadpopup(id){
-	if(confirm("dass")) document.location="main.html";
+	function loadpopup(name){
+	if(confirm(name)) document.location="main.html";
 	}
-	function addpin(name, a, b){
-		if(name=="1"){
+	function addpin(chain, a, b,name){
+		if(chain=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup(id);" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(name);" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
 		}
-		if(name=="2"){
+		if(chain=="2"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(name);"src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
 		}
-		if(name=="5"){
+		if(chain=="5"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup(name);"src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
 		}
 
 
@@ -123,14 +123,15 @@ tableCreate();
 				if(key=="data"){
 					console.log(value);
 					$.each(value,function(key1,value1){
-						var name,i,j;
+						var chain_id,i,j,name;
 						$.each(value1,function(key2,value2){
-							if(key2=="chain_id") name=value2;
+							if(key2=="chain_id") chain_id=value2;
+							if(key2=="name") name=value2;
 							if(key2=="grid_i") i=value2;
 							if(key2=="grid_j"){ 
 								j=value2;
-								console.log(name+" "+i+" "+j);
-								addpin(name,i,j);
+								console.log(chain_id+" "+i+" "+j);
+								addpin(chain_id,i,j,name);
 							 }
 						});
 						
