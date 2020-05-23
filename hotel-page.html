@@ -85,6 +85,34 @@
             document.getElementById("signup").style.display="none";
             document.getElementById("welcome").innerHTML=response.data["username"];
             logout.style.display="block";
+            var userid=response.data["id"];
+            $.ajax({
+              url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/reservation/list/',
+              type:'POST',
+              success:function(response){
+                $.each(response,function(key,value){
+                  if(key=="data"){
+                    console.log(value);
+                    $.each(value,function(key1,value1){
+                      var user_id,room_id,date_from,date_to,order_time;
+                      $.each(value1,function(key2,value2){
+                        if(key2=="user_id") user_id=value2;
+                        if(user_id==userid){
+                            if(key2=="room_id") room_id=value2;
+                            if(key2=="date_from") date_from=value2;
+                            if(key2=="date_to") date_to=value2;
+                            if(key2=="created"){
+                              order_time=vaue2;
+                              console.log(user_id+" "+room_id+" "+date_from+" "+date_to+" "+order_time);
+                              makebookedlist(user_id,room_id,date_from,date_to,order_time);
+                            }
+                        }
+                      });
+                    });
+                  }
+                });
+              }
+            });
         }else{
             document.getElementById("signin").style.display="block";
             document.getElementById("signup").style.display="block";
@@ -103,37 +131,36 @@
   $('#list').append('<td class="text-center"><span class="badge badge-success">'+booked+'</span></td>');
   $('#list').append('<td class="text-center">'+order_time+'</td></tr');
   }
-  $(document).ready(function(){
-    var username=$("#welcome").text();
-    $.ajax({
-      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/reservation/list/',
-      type:'POST',
-      success:function(response){
-        $.each(response,function(key,value){
-          if(key=="data"){
-            console.log(value);
-            $.each(value,function(key1,value1){
-              var user_id,room_id,date_from,date_to,order_time;
-              $.each(value1,function(key2,value2){
-                if(key2=="user_id") user_id=value2;
-                if(user_id==username){
-                    if(key2=="room_id") room_id=value2;
-                    if(key2=="date_from") date_from=value2;
-                    if(key2=="date_to") date_to=value2;
-                    if(key2=="created"){
-                      order_time=vaue2;
-                      console.log(user_id+" "+room_id+" "+date_from+" "+date_to+" "+order_time);
-                      makebookedlist(user_id,room_id,date_from,date_to,order_time);
-                    }
-                }
-
-              });
-            });
-          }
-        });
-      }
-    });
-  });
+  // $(document).ready(function(){
+  //   var username=$("#welcome").text();
+  //   $.ajax({
+  //     url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/reservation/list/',
+  //     type:'POST',
+  //     success:function(response){
+  //       $.each(response,function(key,value){
+  //         if(key=="data"){
+  //           console.log(value);
+  //           $.each(value,function(key1,value1){
+  //             var user_id,room_id,date_from,date_to,order_time;
+  //             $.each(value1,function(key2,value2){
+  //               if(key2=="user_id") user_id=value2;
+  //               if(user_id==username){
+  //                   if(key2=="room_id") room_id=value2;
+  //                   if(key2=="date_from") date_from=value2;
+  //                   if(key2=="date_to") date_to=value2;
+  //                   if(key2=="created"){
+  //                     order_time=vaue2;
+  //                     console.log(user_id+" "+room_id+" "+date_from+" "+date_to+" "+order_time);
+  //                     makebookedlist(user_id,room_id,date_from,date_to,order_time);
+  //                   }
+  //               }
+  //             });
+  //           });
+  //         }
+  //       });
+  //     }
+  //   });
+  // });
   $(document).ready(function(){
 	var u=location.href;
 	var n=u.indexOf("?");
