@@ -58,6 +58,9 @@
 		<a href="register.html">register</a> 
         </div>
       </div>
+	<div id="div1" hidden="true">
+		<p id="p1"></p>
+	</div>
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
@@ -90,8 +93,10 @@ function tableCreate(){
 tableCreate();
 
 	function loadpopup(id){
-		var popup=document.getElementById(id);
-		popup.innerHTML="dasdas";
+		var abc=document.getElementById(div1);
+		abc.toggle();
+		var abcd=document.getElementById(p1);
+		p1.innerHTML=id;
 	}
 	function addpin(name, a, b){
 		if(name=="1"){
