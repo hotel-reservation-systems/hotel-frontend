@@ -29,11 +29,11 @@
     </ul>
   </nav>
   </div>
-  <section class="py-5" id="test">
-  <!-- <div class="container text-center">
-    <h2 class="mb-4">HOTEL</h2>
-    <div class="border rounded px-3">
-      <div class="row"> -->
+  <section class="py-5" >
+  <div class="container text-center" id="test">
+    <!-- <h2 class="mb-4">HOTEL</h2> -->
+    <!-- <div class="border rounded px-3"> -->
+      <!-- <div class="row"> -->
         <!-- <div class="col-md-4 my-4">
           <h3 class="mb-3">Cheap</h3>
           <p>$10 <small class="text-muted">Per user / day</small></p>
@@ -72,13 +72,13 @@
         <!-- </div> -->
       <!-- </div> -->
     <!-- </div> -->
-  <!-- </div> -->
+  </div>
 </section>
 </body>
 <script>
 
   function makelist(hotel_id,rate,price){
-    $('#test').append('<div class="container text-center"><h2 class="mb-4">HOTEL</h2><div class="border rounded px-3"><div class="row">');
+    $('#test').append('<h2 class="mb-4">HOTEL</h2><div class="border rounded px-3"><div class="row">');
     $('#test').append('<h3 class="mb-3">'+rate+'</h3>');
     $('#test').append('<p>'+price+'<small class="text-muted">Per user / day</small></p>');
     $('#test').append('<p class="lead"> A room with a'+rate+' bed. </p>');
@@ -88,7 +88,7 @@
     $('#test').append('<li>free charge</li>');
     $('#test').append('  <li>free coffee</li>');
     $('#test').append('</ul>');
-    $('#test').append('<button class="btn btn-lg btn-outline-primary" type="button">BOOK</button></div></div></div>');
+    $('#test').append('<button class="btn btn-lg btn-outline-primary" type="button">BOOK</button></div></div>');
 
   }
   $(document).ready(function(){
