@@ -29,74 +29,31 @@
     </ul>
   </nav>
   </div>
-  <section class="py-5">
-  <div class="container text-center">
+  <section class="py-5" >
+  <div class="container text-center" >
     <h2 class="mb-4">HOTEL</h2>
-    <div class="border rounded px-3">
-      <div class="row">
-        <div class="col-md-4 my-4">
-          <h3 class="mb-3">Cheap</h3>
-          <p>$10 <small class="text-muted">Per user / day</small></p>
-          <p class="lead">A room assigned to one person</p>
-          <hr class="d-none d-md-block">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>free wifi</li>
-            <li>free charge</li>
-            <li>free coffee</li>
-          </ul>
-          <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>
-        </div>
-        <div class="col-md-4 my-4">
-          <h3 class="mb-3">Moderate</h3>
-          <p>$50 <small class="text-muted">Per user / day</small></p>
-          <p class="lead"> A room assigned to two people. </p>
-          <hr class="d-none d-md-block">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>free wifi</li>
-            <li>free charge</li>
-            <li>free coffee</li>
-          </ul>
-          <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>
-        </div>
-        <div class="col-md-4 my-4">
-          <h3 class="mb-3">Deluxe</h3>
-          <p>$100 <small class="text-muted">Per user / day</small></p>
-          <p class="lead"> A room with a king-sized bed. </p>
-          <hr class="d-none d-md-block">
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>free wifi</li>
-            <li>free charge</li>
-            <li>free coffee</li>
-          </ul>
-          <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>
-        </div>
+    <div class="border rounded px-3" id="test">
       </div>
     </div>
   </div>
 </section>
 </body>
 <script>
-  function makelist(hotel_id,rate,price){
-	  var body = document.body;
-	  var newDiv = document.createElement('div');
-	  body.appendChild(newDiv);
-	  var header = document.createElement('h3');
-	  header.appendChild(document.createTextNode(rate));
-          newDiv.appendChild(header);
-	  var p = document.createElement('p');
-	  p.appendChild(document.createTextNode(price));
-	  newDiv.appendChild(p);
-	  var ulist = document.createElement('ul');
-	  ulist.setAttribute('class', "list-unstyled mt-3 mb-4");
-	  var li = document.createElement('li');
-	  li.appendChild(document.createTextNode("Free wifi, free charge, free coffee"));
-	  ulist.appendchild(li);
-	  var book = document.createElement('button');
-	  button.appendChild(document.createTextNode("BOOK"));
-	  book.setAttribute('class', "btn btn-lg btn-outline-primary");
-	  newDiv.appendChild(book);
 
-  }  
+  function makelist(hotel_id,rate,price){
+    $('#test').append('<div class="row">');
+    $('#test').append('<h3 class="mb-3">'+rate+'</h3>');
+    $('#test').append('<p>'+price+'<small class="text-muted"> Per user / day</small></p>');
+    $('#test').append('<p class="lead"> A room with a'+rate+' bed. </p>');
+    $('#test').append('<ul class="list-unstyled mt-3 mb-4">');
+    $('#test').append('<li>free wifi</li>');
+    $('#test').append('<li>free charge</li>');
+    $('#test').append('<li>free coffee</li>');
+    $('#test').append('</ul>');
+    $('#test').append('<button class="btn btn-lg btn-outline-primary" type="button">BOOK</button></div>');
+    $('#test').append('<hr class="d-none d-md-block">');
+
+  }
   $(document).ready(function(){
 		$.ajax({
 			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/room/list/?hotel_id=1',
@@ -110,7 +67,7 @@
 						$.each(value1,function(key2,value2){
                   if(key2=="hotel_id") hotel_id=value2;
                   if(key2=="rate") rate=value2;
-	  if(key2=="price"){ price=value2;
+                  if(key2=="price"){ price=value2;
                   console.log(hotel_id+" "+rate+" "+price);
                   makelist(hotel_id,rate,price);
 							 }
