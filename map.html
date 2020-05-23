@@ -80,7 +80,7 @@ function tableCreate(){
         for(var j = 0; j <= 100; j++){
                 var td = tr.insertCell();
 		td.style.width = '15px';
-		td.style.height = '10px';
+		td.style.height = '8px';
                 td.appendChild(document.createTextNode(''));
 		var x = 100*i+j;
                 td.setAttribute('id', x);
@@ -95,17 +95,17 @@ tableCreate();
 		if(name=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img id="c" onclick="click()" src= "img/hotel.png" style="max-height:100%; max-width:100%">';
+			location.innerHTML='<img id="c" onclick="click()" src= "img/hotel.png" style="max-height:60px; max-width:40px">';
 		}
 		if(name=="2"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img src= "img/hotel2.png" style="max-height:100%; max-width:100%">';
+			location.innerHTML='<img src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
 		}
 		if(name=="5"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
+			location.innerHTML='<img src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
 		}
 
 
