@@ -85,7 +85,10 @@
   });
   $(document).ready(function(){
 		$.ajax({
-			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/room/list/?hotel_id=1',
+			var u=location.href;
+			var n=u.indexOf("?");
+			var str=u.substr(n+1);
+			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/room/list/?hotel_id='+str,
 			type:'POST',
 			success:function(response){
 			$.each(response,function(key,value ){
