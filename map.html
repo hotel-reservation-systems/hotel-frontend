@@ -79,8 +79,8 @@ function tableCreate(){
         for(var j = 0; j <= 100; j++){
                 var td = tr.insertCell();
                 td.appendChild(document.createTextNode(''));
-				var x = 100*i+j;
-                this.setAttribute('id', x);
+		var x = 100*i+j;
+                td.setAttribute('id', x);
         }
     }
     body.appendChild(tbl);
