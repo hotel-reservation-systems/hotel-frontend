@@ -106,7 +106,7 @@
   $(document).ready(function(){
     var username=$("#welcome").text();
     $.ajax({
-      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/reservation/list/';
+      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/reservation/list/',
       type:'POST',
       success:function(response){
         $.each(response,function(key,value){
