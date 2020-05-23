@@ -58,9 +58,6 @@
 		<a href="register.html">register</a> 
         </div>
       </div>
-	<div id="div1">
-		<p id="p1"></p>
-	</div>
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
@@ -104,12 +101,12 @@ tableCreate();
 		if(chain=="2"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup(name);"src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup('+name+');"src= "img/hotel2.png" style="max-height:60px; max-width:40px">';
 		}
 		if(chain=="5"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img onclick="loadpopup(name);"src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
+			location.innerHTML='<img onclick="loadpopup('+name+');"src= "img/hotel3.png" style="max-height:60px; max-width:40px">';
 		}
 
 
