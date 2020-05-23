@@ -75,4 +75,28 @@
   </div>
 </section>
 </body>
+<script>
+  $(document).ready(function(){
+		$.ajax({
+			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/room/',
+			type:'POST',
+			success:function(response){
+			$.each(response,function(key,value ){
+				if(key=="data"){
+					console.log(value);
+					$.each(value,function(key1,value1){
+						var user_id,id,name;
+						$.each(value1,function(key2,value2){
+
+							 }
+						});
+						
+					});
+				}
+			});
+// 			}
+		}
+	});
+	});
+</script>
 </html>
