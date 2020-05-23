@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-Compatible" content="ie=edge">
+    <title>Map Page</title>
+    <meta charset="utf-8" >
+</head>
+<style>
+
+   .dropbtn {
+        background-color:darkgrey;
+        color: silver;
+        padding: 15px;
+        font-size: 15px;
+        border: none;
+        border-radius:15px;
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color:grey;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius:15px;
+    }
+    .dropdown-content a {
+        color: silver;
+        padding: 12px 12px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: darkgrey;}
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: grey;}
+
+    body{
+        background-color:silver;
+    }
+    table{
+        border: 1px solid black;
+	    cursor: pointer;
+	    margin: 25px auto;
+	}
+    td{
+        /* border: 1px solid black; */
+		width:45px;
+		height:45px;
+		text-align:center;
+	}
+	caption{
+		color: grey;
+	}
+</style>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Login & Register</button>
+        <div class="dropdown-content">
+          <a href="signin.html">login</a>
+          <a href="logout.html">logout</a>
+          <a href="register.html">register</a>
+        </div>
+      </div>
+	<table id="tab" background="img/map.jpg" width=1050 height=625>
+		<caption>
+			*Red Tag: Chain 1     *Black Tag: Chain 2     *Purple Tag: Chain 3
+		</caption>
+		<tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 3" onclick='addpin(this);'><img src= "img/hotel3.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 2" onclick='addpin(this);'><img src= "img/hotel2.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+
+		</tr>
+		<tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 2" onclick='addpin(this);'><img src= "img/hotel2.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+
+        </tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 3" onclick='addpin(this);'><img src= "img/hotel3.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+
+        </tr>
+        <tr>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 2" onclick='addpin(this);'><img src= "img/hotel2.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 2" onclick='addpin(this);'><img src= "img/hotel2.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+
+
+		</tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 3" onclick='addpin(this);'><img src= "img/hotel3.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+
+        </tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 3" onclick='addpin(this);'><img src= "img/hotel3.png" style="max-height:100%; max-width:100%"></td>
+
+        </tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 2" onclick='addpin(this);'><img src= "img/hotel2.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+
+
+        </tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+
+        </tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 3" onclick='addpin(this);'><img src= "img/hotel3.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 1" onclick='addpin(this);'><img src= "img/hotel.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+
+        </tr>
+        <tr>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="Chain 3" onclick='addpin(this);'><img src= "img/hotel3.png" style="max-height:100%; max-width:100%"></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+			<td title="" onclick='addpin(this);'></td>
+
+        </tr>
+
+    </table>
+</body>
+<script>
+    function addpin(a){
+		//if user's identity is admin
+		if(a.innerHTML!=""){
+        	window.open("");
+		}
+		//if chain 1
+		a.innerHTML='<img src= "img/hotel.png" style="max-height:100%; max-width:100%">';
+		a.title="Chain 1"
+		//if chain 2  a.innerHTML='<img src= "img/hotel2.png" style="max-height:100%; max-width:100%">';a.title="Chain 2"
+		//if chain 3  a.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';a.title="Chain 3"
+	}
+</script>
+</html>
