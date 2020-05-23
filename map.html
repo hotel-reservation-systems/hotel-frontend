@@ -106,16 +106,32 @@ tableCreate();
 
 
 	}
-	$(ducument).ready(function(){
+	$(document).ready(function(){
 		$.ajax({
-			url:'http://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/hotel/list/',
+			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/list/',
 			type:'POST',
 			success:function(response){
-				for(var i=0; i<response.data.lenth;i++){
-					addpin(response.data[i].chain_id, response.data[i].grid_i, response.data[i].grid_j);
-			}
+			$.each(response,function(key,value ){
+				if(key=="data"){
+					console.log(value);
+					$.each(value,function(key1,value1){
+						var name,i,j;
+						$.each(value1,function(key2,value2){
+							if(key2=="name") name=value2;
+							if(key2=="grid_i") i=value2;
+							if(key2=="grid_j"){ 
+								j=value2;
+								console.log(name+" "+i+" "+j);
+								addpin(name,i,j);
+							 }
+						});
+						
+					});
+				}
+			});
+// 			}
 		}
 	});
-	})
+	});
 </script>
 </html>
