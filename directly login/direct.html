@@ -1,0 +1,30 @@
+<html>
+  <head>
+     
+    <title>Welcome Back</title>
+     
+     
+    <script type="text/javascript">
+    function login(){
+        var username=window.document.getElementById("username").value;
+        var password=window.document.getElementById("password").value;
+        if(username=="123" && password=="123")
+            {
+            alert("Login successfully");
+            }else{
+                alert("Fail to login");
+                return false;
+                 
+            }
+         
+    }
+    </script>
+ 
+  </head>
+   
+  <body>
+    <input type="text" id="username"/>
+     <input type="password" id="password"/>
+     <input type="button" onclick="login()" value="Login"/>
+  </body>
+</html>
