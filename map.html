@@ -58,9 +58,7 @@
 		<a href="register.html">register</a> 
         </div>
       </div>
-<div hidden="true" id="window">
-	<p id="name1">dsads</p>
-	</div>
+
 </body>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
@@ -70,11 +68,11 @@ function tableCreate(){
 
     tbl.style.border = '1px solid black';
     tbl.style.cursor = 'pointer';
-    tbl.style.margin = '25px';
 //     tbl.style.height = '625px';
 //     tbl.style.width = '1050px';
-    tbl.style.background= 'url("img/map.jpg") no-repeat auto';
-
+    tbl.style.background= 'url("img/map.jpg")';
+    tbl.style.backgroundRepeat= 'no-repeat';
+    tbl.style.backgroundSize= 'auto';
     tbl.style.margin = '25px auto';
 
     for(var i = 0; i <= 100; i++){
@@ -97,7 +95,7 @@ tableCreate();
 		if(name=="1"){
 			var id = 100*a + b;
 			var location = document.getElementById(id);
-			location.innerHTML='<img src= "img/hotel.png" style="max-height:100%; max-width:100%">';
+			location.innerHTML='<img id="c" onclick="click()" src= "img/hotel.png" style="max-height:100%; max-width:100%">';
 		}
 		if(name=="2"){
 			var id = 100*a + b;
@@ -109,12 +107,12 @@ tableCreate();
 			var location = document.getElementById(id);
 			location.innerHTML='<img src= "img/hotel3.png" style="max-height:100%; max-width:100%">';
 		}
+
+
 	}
-	$(ducument).ready(function(){
-		$("#window").hover(function(){
-			$(".window").toggle();
-		});
-	}):
+	function click(){
+		alert("das");
+	}
 	$(document).ready(function(){
 		$.ajax({
 			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/list/',
