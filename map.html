@@ -58,7 +58,7 @@
 		<a href="register.html">register</a> 
         </div>
       </div>
-	<div id="div1" hidden="true">
+	<div id="div1">
 		<p id="p1"></p>
 	</div>
 </body>
@@ -93,10 +93,8 @@ function tableCreate(){
 tableCreate();
 
 	function loadpopup(id){
-		var abc=document.getElementById(div1);
-		abc.toggle();
 		var abcd=document.getElementById(p1);
-		p1.innerHTML=id;
+		abcd.innerHTML=id;
 	}
 	function addpin(name, a, b){
 		if(name=="1"){
