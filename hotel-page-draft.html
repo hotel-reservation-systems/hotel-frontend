@@ -76,21 +76,28 @@
 </section>
 </body>
 <script>
+  function makelist(hotel_id,rate,price){
+
+  }
   $(document).ready(function(){
 		$.ajax({
-			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/hotel/room/',
+			url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/room/list/?hotel_id=1',
 			type:'POST',
 			success:function(response){
 			$.each(response,function(key,value ){
 				if(key=="data"){
 					console.log(value);
 					$.each(value,function(key1,value1){
-						var user_id,id,name;
+						var hotel_id,rate,price;
 						$.each(value1,function(key2,value2){
-
+                  if(key2=="hotel_id") hotel_id=value2;
+                  if(key2=="rate") rate=value2;
+                  if(key2=="price") price=value2;
+                  console.log(hotel_id+" "+rate+" "+price);
+                  makelist(hotel_id,rate,price);
 							 }
 						});
-						
+
 					});
 				}
 			});
