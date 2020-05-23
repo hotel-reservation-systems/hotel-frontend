@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>administrator interface</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+	p{
+		margin-top: 200px;
+		color: grey;
+		font-size: large;
+		text-align: center;
+	}
+    body{
+        background-color:silver;
+    }
+	div{
+		text-align: center;
+		color:grey;
+	}
+	button{
+        background-color:darkgrey;
+        color: silver;
+        padding: 15px;
+        font-size: 15px;
+        border: none;
+        border-radius:15px;
+    }
+	button:hover {
+        background-color:grey; 
+        color:silver;
+    }
+</style>
+<body>
+	<p>Administrator Interface</p>
+	<div>
+	Enter abscissa of the new hotel: <input type="text" id="x" placeholder="Enter an integer 1-100" maxlength="3"><br><br>
+	Enter ordinate of the new hotel: <input type="text" id="y" placeholder="Enter an integer 1-100" maxlength="3"><br><br>
+	<button onclick="myFunction()">ADD</button>
+	</div>
+</body>
+
+
+<script>
+	var x = document.getElementById("x");
+	var y = document.getElementById("y");
+	function myFunction(){
+
+	$(document).ready(function(){
+    $.ajax({
+      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
+      type:'POST',
+      success:function(response){
+
+
+	  }})})
+	  
+	}
+</script>
+</html>
