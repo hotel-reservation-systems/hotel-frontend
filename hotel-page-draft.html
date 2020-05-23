@@ -33,8 +33,8 @@
   <div class="container text-center">
     <h2 class="mb-4">HOTEL</h2>
     <div class="border rounded px-3">
-      <div class="row">
-        <div class="col-md-4 my-4">
+      <div class="row"  id="test">
+        <!-- <div class="col-md-4 my-4">
           <h3 class="mb-3">Cheap</h3>
           <p>$10 <small class="text-muted">Per user / day</small></p>
           <p class="lead">A room assigned to one person</p>
@@ -45,8 +45,8 @@
             <li>free coffee</li>
           </ul>
           <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>
-        </div>
-        <div class="col-md-4 my-4">
+        </div> -->
+        <!-- <div class="col-md-4 my-4">
           <h3 class="mb-3">Moderate</h3>
           <p>$50 <small class="text-muted">Per user / day</small></p>
           <p class="lead"> A room assigned to two people. </p>
@@ -57,9 +57,9 @@
             <li>free coffee</li>
           </ul>
           <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>
-        </div>
-        <div class="col-md-4 my-4">
-          <h3 class="mb-3">Deluxe</h3>
+        </div> -->
+        <!-- <div class="col-md-4 my-4" id="test"> -->
+          <!-- <h3 class="mb-3">Deluxe</h3>
           <p>$100 <small class="text-muted">Per user / day</small></p>
           <p class="lead"> A room with a king-sized bed. </p>
           <hr class="d-none d-md-block">
@@ -68,8 +68,8 @@
             <li>free charge</li>
             <li>free coffee</li>
           </ul>
-          <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>
-        </div>
+          <button class="btn btn-lg btn-outline-primary" type="button">BOOK</button> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -78,6 +78,16 @@
 <script>
 
   function makelist(hotel_id,rate,price){
+    $('#test').append('<h3 class="mb-3">'+rate+'</h3>');
+    $('#test').append('<p>'+price+'<small class="text-muted">Per user / day</small></p>');
+    $('#test').append('<p class="lead"> A room with a'+rate+' bed. </p>');
+    $('#test').append('  <hr class="d-none d-md-block">');
+    $('#test').append('<ul class="list-unstyled mt-3 mb-4">');
+    $('#test').append('  <li>free wifi</li>');
+    $('#test').append('<li>free charge</li>');
+    $('#test').append('  <li>free coffee</li>');
+    $('#test').append('</ul>');
+    $('#test').append('<button class="btn btn-lg btn-outline-primary" type="button">BOOK</button>');
 
   }
   $(document).ready(function(){
