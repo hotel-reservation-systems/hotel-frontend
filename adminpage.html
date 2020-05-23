@@ -40,6 +40,7 @@
 <body>
 	<p>Administrator Interface</p>
 	<div>
+	Enter name of the new hotel: <input type="text" id="name" placeholder="Enter a name"><br><br>
 	Enter abscissa of the new hotel: <input type="text" id="x" placeholder="Enter an integer 1-100" maxlength="3"><br><br>
 	Enter ordinate of the new hotel: <input type="text" id="y" placeholder="Enter an integer 1-100" maxlength="3"><br><br>
 	<button onclick="myFunction()">ADD</button>
@@ -48,6 +49,7 @@
 
 
 <script>
+	var name = document.getElementById("name");
 	var x = document.getElementById("x");
 	var y = document.getElementById("y");
 	function myFunction(){
