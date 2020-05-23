@@ -86,7 +86,7 @@
             document.getElementById("welcome").innerHTML=response.data["username"];
             logout.style.display="block";
             var userid=response.data["id"];
-            var usename=response.data["username"];
+            var username=response.data["username"];
             $.ajax({
               url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/reservation/list/',
               type:'POST',
