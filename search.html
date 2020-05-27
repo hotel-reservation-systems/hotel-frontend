@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-Compatible" content="ie=edge">
-  <title>Map - HOTEL</title>
+  <title>Search - HOTEL</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -12,48 +12,6 @@
   <style>
   body{
     background-color:silver;
-  }
-  #mapLoading {
-    z-index: 1;
-    position: absolute;
-    top: 46%;
-    left: 35%;
-    right: 35%;
-    bottom: 46%;
-    background-color: #a9a9a98a;
-    border-radius: 15px;
-    padding: 20px;
-  }
-  #mapTable {
-    border: 1px solid black;
-    table-layout: fixed;
-    position: absolute; top: 86px; bottom: 0; left: 0; right: 0;
-    height: 90%;
-    width: 100%;
-    background-image: url("img/map.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
-    cursor: crosshair;
-  }
-  .map-pin {
-    max-height:60px;
-    max-width:40px;
-    cursor: pointer;
-  }
-  @media only screen and (max-width: 600px) {
-    #mapLoading {
-      left: 15%;
-      right: 15%;
-    }
-    #mapTable {
-      position: absolute; top: 88px; bottom: 0; left: 0; right: 0;
-      height: 60vh;
-    }
-    .map-pin {
-      max-height:60px;
-      max-width:25px;
-    }
   }
   </style>
 </head>
@@ -70,11 +28,11 @@
         <li class="nav-item">
           <a class="nav-link" href="main.html">Home</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="map.html">Map <span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="search.html">Search</a>
+          <a class="nav-link" href="map.html">Map</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="search.html">Search <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="currentDate">Current Date: </a>

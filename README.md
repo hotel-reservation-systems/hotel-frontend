@@ -7,3 +7,32 @@
 [![Build Status](https://travis-ci.org/hotel-reservation-systems/hotel-frontend.svg?branch=master)](https://travis-ci.org/hotel-reservation-systems/hotel-frontend)
 
 This is the frontend codebase for the hotel project.
+
+## Demo
+
+https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/frontend/
+
+## Administrator Information
+
+The following credentials can be used to sign in as hotel Administrator.  
+
+```JSON
+{
+    "id": 2,
+    "username": "mingschain",
+    "password": "11223344",
+    "role": "administrator",
+},
+{
+    "id": 6,
+    "username": "marriottadmin",
+    "password": "marriottmarriott",
+    "role": "administrator",
+},
+{
+    "id": 7,
+    "username": "hiltonsuper",
+    "password": "hiltonIsTheBest",
+    "role": "administrator",
+}
+```

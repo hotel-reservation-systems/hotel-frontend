@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>HOTEL</title>
+  <title>Hotel Room - HOTEL</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -11,28 +11,36 @@
 </head>
 <body style="background-color:silver">
 
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <a class="navbar-brand" href="main.html">
-      <img src="img/icon.png" alt="logo" style="width:40px;">
+      <img src="img/icon.png" alt="logo" style="width:62px;">
     </a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" id="signin1">
-        <a class="nav-link"  href="signin.html" style="color:silver"  id="signin">Sign in</a>
-        <p  class="nav-link" id="welcome"></p>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="register.html" style="color:silver"  id="signup">Register</a>
-          <a class="nav-link" id="logout" href="logout.html">logout</a>
-      </li>
-      <li class="navbar-nav mr-auto">
-        <a  class="nav-link" href="map.html">Map</a>
-      </li>
-        </ul>
-        <form class="form-inline">
-          <input class="form-control" type="text" placeholder="Search">
-          <button class="btn btn-dark btn-outline-dark-grey" type="submit">Search</button>
-        </form>
-  </nav
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="main.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="map.html">Map</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="search.html">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="currentDate">Current Date: </a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <span id="welcome"></span>
+        <a href="logout.html" style="color:silver; padding-left: 10px;" id="logout">Sign out</a>
+        <a href="signin.html" style="color:silver; padding-right:10px;" id="signin">Sign in</a>
+        <a href="register.html" style="color:silver;" id="signup">Sign up</a>
+      </span>
+    </div>
+  </nav>
   <section class="py-4">
     <div class="container-fluid">
       <h2 class="mb-4">Order status</h2>
@@ -74,17 +82,23 @@
 
   }
   $(document).ready(function(){
+    var date = sessionStorage.getItem("currentDate");
+    if (date == null) {
+      window.location.href = "index.html";
+    }
+    else {
+      document.getElementById("currentDate").innerHTML = "Current Date: " + date;
+    }
+
     $.ajax({
       url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
       type:'POST',
       success:function(response){
-
-        var logout=document.getElementById("logout");
         if(response.data["loggedin"]==true){
-            document.getElementById("signin").style.display="none";
-            document.getElementById("signup").style.display="none";
-            document.getElementById("welcome").innerHTML=response.data["username"];
-            logout.style.display="block";
+          document.getElementById("signin").style.display="none";
+          document.getElementById("signup").style.display="none";
+          document.getElementById("welcome").innerHTML="Welcome, " + response.data["username"];
+          document.getElementById("logout").style.display="inline";
             var userid=response.data["id"];
             var username=response.data["username"];
             $.ajax({
@@ -104,7 +118,7 @@
                               order_time=value2;
                               console.log(username+" "+room_id+" "+date_from+" "+date_to+" "+order_time);
                               makebookedlist(username,room_id,date_from,date_to,order_time);
-                            
+
                         }
                       });
                     });
@@ -113,10 +127,10 @@
               }
             });
         }else{
-            document.getElementById("signin").style.display="block";
-            document.getElementById("signup").style.display="block";
-            document.getElementById("welcome").innerHTML="";
-            logout.style.display="none";
+          document.getElementById("signin").style.display="inline";
+          document.getElementById("signup").style.display="inline";
+          document.getElementById("welcome").style.display="none";
+          document.getElementById("logout").style.display="none";
 
         }
       }

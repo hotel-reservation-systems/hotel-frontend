@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>HOTEL</title>
+  <title>Sign up - HOTEL</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -10,15 +10,40 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script>
   $(document).ready(function(){
-    $("#signup").click(function(){
+    var date = sessionStorage.getItem("currentDate");
+    if (date == null) {
+      window.location.href = "index.html";
+    }
+    else {
+      document.getElementById("currentDate").innerHTML = "Current Date: " + date;
+    }
+
+    $.ajax({
+      url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/status/',
+      type:'GET',
+      success:function(response){
+        if(response.data["loggedin"]==true) window.location.href = "main.html";
+      }
+    });
+    // prevent default submit
+    document.getElementById("signin").addEventListener("click", function(event){
+      event.preventDefault()
+    });
+    $("#signin").click(function(){
       var username = document.getElementById("user").value.trim();
       var password = document.getElementById("password").value.trim();
       $.ajax({
-        url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/auth/login/',
+        url:'https://venus.cs.qc.cuny.edu/~lemi2837/cs370/project2/backend/user/create/',
         type:'POST',
         data:{username:username,password:password,role:"customer"},
         success:function(response){
+          if(response.code == 0){
+            alert("Account has been successfully created. Now you can use the Sign in page to sign in.");
+            window.location.href="signin.html";
+          }
+          else{
             alert(response.message);
+          }
         }
       });
     });
@@ -26,18 +51,52 @@
   </script>
 </head>
 <body style="background-color:silver">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <a class="navbar-brand" href="main.html">
+      <img src="img/icon.png" alt="logo" style="width:62px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="main.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="map.html">Map</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="currentDate">Current Date: </a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <span id="welcome"></span>
+        <a href="signin.html" style="color:silver; padding-right:10px;">Sign in</a>
+        <a href="register.html" style="color:white;">Sign up</a>
+      </span>
+    </div>
+  </nav>
+
   <section>
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col-md-5 col-lg-4">
-          <label class="sr-only" for="input2-signin-02">Name</label>
-          <input class="form-control my-3 bg-light" id="user" type="text" placeholder="Name">
-          <label class="sr-only" for="input3-signin-02">Password</label>
-          <input class="form-control my-3 bg-light" id="password" type="password" placeholder="Password">
-          <div class="d-flex">
-            <button class="btn btn-outline-primary btn-block py-2 mr-3" name="signin" id="signin"onclick="window.location.href ='signin.html'">go to Sign In!</button>
-            <button class="btn btn-primary btn-block py-2 mt-0" id="signup">Register!</button>
-          </div>
+          <h1 style="display: block; padding-top: 60px; padding-bottom: 30px;" class="text-center">Register</h1>
+          <form>
+            <label class="sr-only" for="input2-signin-02">Username</label>
+            <input class="form-control my-3 bg-light" id="user" type="text" placeholder="Username" required>
+            <label class="sr-only" for="input3-signin-02">Password</label>
+            <input class="form-control my-3 bg-light" id="password" type="password" placeholder="Password" required>
+            <div class="d-flex">
+              <button class="btn btn-primary btn-block py-2 mr-3" name="signin" id="signin">Register</button>
+              <button class="btn btn-outline-secondary btn-block py-2 mr-3" id="reset" type="reset" style="margin-top: 0px;">Reset</button>
+            </div>
+            <button type="button" class="btn btn-link btn-block" onclick="window.location.href ='signin.html'">Already have an account? Sign in here</button>
+          </form>
         </div>
       </div>
     </div>
